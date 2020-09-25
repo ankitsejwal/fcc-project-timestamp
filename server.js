@@ -28,6 +28,8 @@ app.get("/api/timestamp/", (req, res) => {
 });
 
 app.get("/api/timestamp/:date_string", (req, res) => {
+  let dateString = req.params.date_string;
+
   if (/\d{5,}/.test(dateString)) {
     dateInt = parseInt(dateString);
     res.json({ unix: dateString, utc: new Date(dateInt).toUTCString() });
